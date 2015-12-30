@@ -9,13 +9,16 @@ div {
 #stories {
 	width: 90%;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .story-container {
 	width: 200px;
 	height: 290px;
 	padding: 5px 5px;
+	margin: 10px 10px;
 	background: white;
+	vertical-align: top;
 }
 
 .user-image img{
