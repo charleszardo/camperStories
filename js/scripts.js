@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	stories = []
+	var stories = []
 	
 	var camperNewsAPI = "http://www.freecodecamp.com/news/hot";
 	
@@ -46,10 +46,15 @@ $(document).ready(function(){
 		    format: "json"
 		  }).done(function( data ) {
 		      data.forEach(function(item) {
-		      	addStory(item);
+						var headline = item.headline;
+						if (stories.indexOf(headline) === -1) {
+							stories.push(headline);
+							addStory(item);
+						}
 		      });
 		    });
 	}
 	
 	checkStories();
+	setInterval(checkStories, 1000);
 });
