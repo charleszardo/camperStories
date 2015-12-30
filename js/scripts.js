@@ -1,5 +1,10 @@
 $(document).ready(function(){
 	var camperNewsAPI = "http://www.freecodecamp.com/news/hot";
+	
+	function createDiscussLink(title) {
+		var base = "http://www.freecodecamp.com/news/";
+		return base + title.split(" ").join("-");
+	}
 
 	$.getJSON( camperNewsAPI, {
 	    format: "json"
@@ -12,6 +17,7 @@ $(document).ready(function(){
 							link = item.link,
 							rank = item.rank,
 							discuss = item.storyLink,
+							discussLink = createDiscussLink(discuss),
 							date = item.timePosted;
 							
 					var html = "<div class='story-container'>" +
@@ -21,7 +27,7 @@ $(document).ready(function(){
 							"<div class='author'><p>by - " + uname + "</p></div>" +
 							"<div class='like-container'>" +
 							"<div class='like'><p>" + rank + "</p></div>" +
-							"<div class='discuss'><a href='#'>Discuss</a></div>" +
+							"<div class='discuss'><a href='" + discussLink + "' target='_blank'>Discuss</a></div>" +
 							"</div>" +
 							"<div class='date'><p>" + date + "</p></div>" +
 							"</div></div>"
