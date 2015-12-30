@@ -5,6 +5,10 @@ $(document).ready(function(){
 		var base = "http://www.freecodecamp.com/news/";
 		return base + title.split(" ").join("-");
 	}
+	
+	function createUserLink(uname) {
+		return "http://www.freecodecamp.com/" + uname;
+	}
 
 	$.getJSON( camperNewsAPI, {
 	    format: "json"
@@ -12,6 +16,7 @@ $(document).ready(function(){
 	      data.forEach(function(item) {
 	      	var author = item.author,
 							uname = author.username,
+							userLink = createUserLink(uname),
 							headline = item.headline,
 							image = (item.image || author.picture),
 							link = item.link,
@@ -24,7 +29,7 @@ $(document).ready(function(){
 							"<div class='user-image'><a href='" + link + "' target='_blank'><img src='" + image + "'></a></div>" +
 							"<div class='user-info'>" +
 							"<div class='headline'><a href='" + link + "' target='_blank'>" + headline + "</a></div>" +
-							"<div class='author'><p>by - " + uname + "</p></div>" +
+							"<div class='author'><a href='" + userLink + "' target='_blank'>by - " + uname + "</a></div>" +
 							"<div class='like-container'>" +
 							"<div class='like'><p>" + rank + "</p></div>" +
 							"<div class='discuss'><a href='" + discussLink + "' target='_blank'>Discuss</a></div>" +
