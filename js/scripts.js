@@ -23,7 +23,9 @@ $(document).ready(function(){
 							rank = item.rank,
 							discuss = item.storyLink,
 							discussLink = createDiscussLink(discuss),
-							date = item.timePosted;
+							date = item.timePosted,
+							date = new Date(date),
+					date = date.toDateString();
 							
 					var html = "<div class='story-container'>" +
 							"<div class='user-image'><a href='" + link + "' target='_blank'><img src='" + image + "'></a></div>" +
@@ -34,7 +36,7 @@ $(document).ready(function(){
 							"<div class='like'><p>" + rank + "</p></div>" +
 							"<div class='discuss'><a href='" + discussLink + "' target='_blank'>Discuss</a></div>" +
 							"</div>" +
-							"<div class='date'><p>" + date + "</p></div>" +
+							"<div class='date'><p>Posted on: " + date + "</p></div>" +
 							"</div></div>"
 							
 					$("#stories").append(html);
