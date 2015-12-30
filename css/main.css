@@ -63,14 +63,29 @@ a:hover {
 	line-height: 10px;
 }
 
+.heart {
+	color: #A82C2B;
+}
+
 .like {
-	width: 70%;
+	width: 69%;
+}
+
+.discuss {
+	outline: 0;
+	border: 1px solid grey;
+	background: #337ab7;
+	color: white;
+	text-transform: uppercase;
+	font-size: 10px;
+	border-radius: 5px;
+}
+
+.discuss:hover {
+	cursor: pointer
 }
 
 .date {
 	line-height: 10px;
 }
 
-.heart {
-	color: #A82C2B;
-}
