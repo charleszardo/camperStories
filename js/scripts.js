@@ -21,9 +21,9 @@ $(document).ready(function(){
 							date = item.timePosted;
 							
 					var html = "<div class='story-container'>" +
-							"<div class='user-image'><img src='" + image + "'></div>" +
+							"<div class='user-image'><a href='" + link + "' target='_blank'><img src='" + image + "'></a></div>" +
 							"<div class='user-info'>" +
-							"<div class='headline'><p>" + headline + "</p></div>" +
+							"<div class='headline'><a href='" + link + "' target='_blank'>" + headline + "</a></div>" +
 							"<div class='author'><p>by - " + uname + "</p></div>" +
 							"<div class='like-container'>" +
 							"<div class='like'><p>" + rank + "</p></div>" +
