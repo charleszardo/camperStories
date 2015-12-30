@@ -15,7 +15,7 @@ $(document).ready(function(){
 							date = item.timePosted;
 							
 					var html = "<div class='story-container'>" +
-							"<div class='user-image'><img src='" + image + "'></div" +
+							"<div class='user-image'><img src='" + image + "'></div>" +
 							"<div class='user-info'>" +
 							"<div class='headline'><p>" + headline + "</p></div>" +
 							"<div class='author'><p>by - " + uname + "</p></div>" +
