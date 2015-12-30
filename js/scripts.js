@@ -40,7 +40,7 @@ $(document).ready(function(){
 				"<div class='author'><a href='" + userLink + "' target='_blank'>by - " + uname + "</a></div>" +
 				"<div class='like-container'>" +
 				"<div class='like'><p><span class='heart'>&#9829;</span>&nbsp;" + rank + "</p></div>" +
-				"<div class='discuss'><a href='" + discussLink + "' target='_blank'>Discuss</a></div>" +
+				"<a href='" + discussLink + "' target='_blank'><button class='discuss'>Discuss</button></a>" +
 				"</div>" +
 				"<div class='date'><p>Posted on: " + date + "</p></div>" +
 				"</div></div>"
