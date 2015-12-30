@@ -12,19 +12,26 @@ $(document).ready(function(){
 		return "http://www.freecodecamp.com/" + uname;
 	}
 	
+	function truncateHeadline(headline, len) {
+		len = len || 20;
+		if (headline.length > 20) {
+			headline = headline.substring(0, len) + "...";
+		}
+		return headline;
+	}
+	
 	function addStory(item) {
   	var author = item.author,
 				uname = author.username,
 				userLink = createUserLink(uname),
-				headline = item.headline,
+				headline = truncateHeadline(item.headline),
 				image = (item.image || author.picture),
 				link = item.link,
 				rank = item.rank,
 				discuss = item.storyLink,
 				discussLink = createDiscussLink(discuss),
-				date = item.timePosted,
-				date = new Date(date),
-		date = date.toDateString();
+				date = new Date(item.timePosted),
+				date = date.toDateString();
 				
 		var html = "<div class='story-container'>" +
 				"<div class='user-image'><a href='" + link + "' target='_blank'><img src='" + image + "'></a></div>" +
