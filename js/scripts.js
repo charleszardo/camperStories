@@ -13,9 +13,20 @@ $(document).ready(function(){
 							rank = item.rank,
 							discuss = item.storyLink,
 							date = item.timePosted;
+							
+					var html = "<div class='story-container'>" +
+							"<div class='user-image'><img src='" + image + "'></div" +
+							"<div class='user-info'>" +
+							"<div class='headline'><p>" + headline + "</p></div>" +
+							"<div class='author'><p>by - " + uname + "</p></div>" +
+							"<div class='like-container'>" +
+							"<div class='like'><p>" + rank + "</p></div>" +
+							"<div class='discuss'><a href='#'>Discuss</a></div>" +
+							"</div>" +
+							"<div class='date'><p>" + date + "</p></div>" +
+							"</div></div>"
+							
+					$("#stories").append(html);
 	      });
 	    });
-		
-			$("#news").append("<h2>hi</h2>");
-			$("#news").append("<h2>bye</h2>");
 });
