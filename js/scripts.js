@@ -32,9 +32,9 @@ $(document).ready(function(){
 				discussLink = createDiscussLink(discuss),
 				date = new Date(item.timePosted),
 				date = date.toDateString();
-				
+		
 		var html = "<div class='story-container'>" +
-				"<div class='user-image'><a href='" + link + "' target='_blank'><img src='" + image + "'></a></div>" +
+				"<div class='user-image'><a href='" + link + "' target='_blank'><img src='" + image + "' class='main-photo'></a></div>" +
 				"<div class='user-info'>" +
 				"<div class='headline'><a href='" + link + "' target='_blank'>" + headline + "</a></div>" +
 				"<div class='author'><a href='" + userLink + "' target='_blank'>by - " + uname + "</a></div>" +
@@ -46,6 +46,8 @@ $(document).ready(function(){
 				"</div></div>"
 				
 		$("#stories").append(html);
+		
+		$(".main-photo").error(function() { this.src = "images/no-photo.gif" })
 	}
 	
 	function checkStories() {
