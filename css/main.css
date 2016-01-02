@@ -29,6 +29,8 @@ a:hover {
 	height: 340px;
 	margin: 10px 10px;
 	vertical-align: top;
+	background: white;
+	border-radius: 25px 25px 0 0;
 }
 
 .user-image {
