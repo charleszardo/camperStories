@@ -1,8 +1,6 @@
 $(document).ready(function(){
-	var stories = []
-	var stories2 = {}
-	
-	var camperNewsAPI = "http://www.freecodecamp.com/news/hot";
+	var stories = [],
+			camperNewsAPI = "http://www.freecodecamp.com/news/hot";
 	
 	function createDiscussLink(title) {
 		var base = "http://www.freecodecamp.com/news/";
@@ -81,5 +79,5 @@ $(document).ready(function(){
 	}
 	
 	checkStories();
-	setInterval(checkStories, 1000);
+	setInterval(checkStories, 10000);
 });
