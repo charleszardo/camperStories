@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	var stories = []
+	var stories2 = {}
 	
 	var camperNewsAPI = "http://www.freecodecamp.com/news/hot";
 	
@@ -30,10 +31,11 @@ $(document).ready(function(){
 				rank = item.rank,
 				discuss = item.storyLink,
 				discussLink = createDiscussLink(discuss),
-				date = new Date(item.timePosted),
-				date = date.toDateString();
+				date = item.timePosted,
+				formattedDate = new Date(item.timePosted),
+				formattedDate = formattedDate.toDateString();
 		
-		var html = "<div class='story-container'>" +
+		var html = "<div class='story-container' data-event-date='" + date + "'>" +
 				"<div class='user-image'><a href='" + link + "' target='_blank'><img src='" + image + "' class='main-photo'></a></div>" +
 				"<div class='user-info'>" +
 				"<div class='headline'><a href='" + link + "' target='_blank'>" + headline + "</a></div>" +
@@ -42,8 +44,8 @@ $(document).ready(function(){
 				"<div class='like'><p><span class='heart'>&#9829;</span>&nbsp;" + rank + "</p></div>" +
 				"<a href='" + discussLink + "' target='_blank'><button class='discuss'>Discuss</button></a>" +
 				"</div>" +
-				"<div class='date'><p>Posted on: " + date + "</p></div>" +
-				"</div></div>"
+				"<div class='date'><p>Posted on: " + formattedDate + "</p></div>" +
+				"</div></div>";
 				
 		$("#stories").append(html);
 		
@@ -59,9 +61,23 @@ $(document).ready(function(){
 						if (stories.indexOf(headline) === -1) {
 							stories.push(headline);
 							addStory(item);
+							orderStories(jQuery);
 						}
 		      });
 		    });
+	}
+	
+	function orderStories($){
+	    var container = $("#stories");
+	    var items = $(".story-container");
+
+	    items.sort(function(a,b){
+	        a = parseFloat($(a).attr("data-event-date"));
+	        b = parseFloat($(b).attr("data-event-date"));
+	        return a<b ? -1 : a>b ? 1 : 0;
+	    }).each(function(){
+	        container.prepend(this);
+	    });
 	}
 	
 	checkStories();
